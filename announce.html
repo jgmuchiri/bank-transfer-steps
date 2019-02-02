@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="announcement announcement-drop announcement-danger clearfix" data-ng-if="vm.responseMessages.length>0">
+    <!-- ngRepeat: rm in vm.responseMessages --><div data-ng-repeat="rm in vm.responseMessages" class="">
+    <div data-ct-helpselect="headerError" data-ct-code="message">We're sorry, the security answer does not match the question<!-- ngIf: vm.customerServiceNumber && rm.key=='GENERAL_ERRORMESSAGES_UNHANDLEDEXCEPTION' --></div>
+</div><!-- end ngRepeat: rm in vm.responseMessages -->
+            <span class="announcement-dismiss">
+                <span href="#" data-ng-click="vm.dismissMessage()">
+                    <span class="icon-cancel-circled" aria-hidden="true"></span>
+                    <span class="sr-only">Dismiss</span>
+                </span>
+            </span>
+</div>
+</body>
+</html>

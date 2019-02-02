@@ -1,0 +1,84 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/introjs.css"/>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/intro.js" type="text/javascript"></script>
+</head>
+<body>
+
+<article class="module module-dark max-800 center">
+<h3>Bank Transfer</h3>
+    <div class="wizard">
+        <div class="clearfix">
+            <ul class="nav-tabs tabs-right" role="tablist">
+                <li id="step1" class="col-c-20 first active" title="Payment Account" role="tab" aria-selected="false">
+                    <span>Account</span></li>
+                <li data-stepnumber="2" id="step2" class="col-c-20  done " title="Amount" role="tab" aria-selected="false">
+                    <span>Amount</span></li>
+                <li data-stepnumber="3" id="step3" class="col-c-20" title="Date" role="tab" aria-selected="false"><span>Date</span></li>
+                <li data-stepnumber="4" id="step4" class="col-c-20" title="Verify" role="tab" aria-selected="false"><span>Verify</span></li>
+                <li data-stepnumber="5" id="step5" class="last col-c-20" title="Confirmation" role="tab" aria-disabled="false" aria-selected="true"><span>Confirmation</span>
+                </li>
+            </ul>
+        </div>
+
+        <div data-ng-switch-when="5" class="clearfix basic-animation" role="tabpanel" aria-labelledby="step5">
+            <div class="module module-condensed" data-ct-help-group="">
+                <h4>
+                    <strong>Enter your account information</strong>
+                    <a href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="link-muted">
+                        <span class="icon-help-circled" aria-hidden="true"></span><span class="sr-only">Start Help</span>
+                    </a>
+                </h4>
+                <p data-stepnumber="1" data-step="1" data-intro="This is a tooltip!" data-position="bottom">
+                    Enter  your account information below
+                </p>
+                <br>
+
+                <form class="form-horizontal">
+                    <div class="input-group">
+                        <input type="text" placeholder="Enter your name"/>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" placeholder="Account number"/>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="datepicker" placeholder="Expiry date"/> 
+                    </div>
+                    <div class="input-group"> 
+                        <input type="number" placeholder="Security code"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="actions clearfix">
+            <div class="pull-left-xs">
+                <a class="btn btn-sm btn-secondary" href="#" role="button" title="">Close</a>
+            </div>
+            <div class="pull-right-xs">
+                <div data-showonsteps="2,3,4" data-clickgoto="-1" role="menuitem" style="">
+                    <a class="btn btn-sm" href="#" role="button" title="">Back</a>
+                </div>
+                <div data-showonsteps="2,3" data-clickgoto="1" role="menuitem">
+                    <a class="btn btn-sm btn-secondary" href="#" role="button" data-ng-disabled="!vm.isPaymentAllowed"
+                       title="">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</article>
+
+</body>
+</html>
+
+<script>
+    $('.datepicker').click(function(){
+        $(this).attr('type','date');
+    });
+</script>
